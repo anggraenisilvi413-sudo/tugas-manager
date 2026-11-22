@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pengelola Tugas Kuliah</title>
+  <meta name="description" content="Aplikasi web sederhana untuk mengelola daftar tugas kuliah, dibuat dengan TypeScript dan Vite.">
+</head>
+<body>
+  <header class="header">
+    <div class="wadah">
+      <h1 id="nama-app">Pengelola Tugas Kuliah</h1>
+      <p>Silvi Anggraeni &middot; Informatika UIN Sunan Gunung Djati Bandung</p>
+    </div>
+  </header>
+
+  <main class="wadah">
+    <section aria-labelledby="h-form">
+      <h2 id="h-form">Tambah / Edit Tugas</h2>
+      <form id="form-tugas" class="form">
+        <div class="field"><label for="judul">Nama tugas</label><input id="judul" type="text" required maxlength="100"></div>
+        <div class="field"><label for="matkul">Mata kuliah</label><input id="matkul" type="text" required maxlength="80"></div>
+        <div class="field"><label for="tenggat">Tenggat</label><input id="tenggat" type="date" required></div>
+        <div class="aksi">
+          <button type="submit" class="btn" id="btn-simpan">Tambah Tugas</button>
+          <button type="button" class="btn btn-outline" id="btn-batal" hidden>Batal edit</button>
+        </div>
+      </form>
+    </section>
+
+    <section aria-labelledby="h-daftar">
+      <h2 id="h-daftar">Daftar Tugas</h2>
+      <div class="filter" role="group" aria-label="Filter status tugas">
+        <button type="button" class="chip" data-filter="semua" aria-pressed="true">Semua</button>
+        <button type="button" class="chip" data-filter="belum" aria-pressed="false">Belum Selesai</button>
+        <button type="button" class="chip" data-filter="selesai" aria-pressed="false">Selesai</button>
+      </div>
+      <ul id="daftar" class="daftar"></ul>
+      <p id="kosong" class="kosong">Belum ada tugas.</p>
+    </section>
+
+    <section aria-labelledby="h-info" class="info">
+      <h2 id="h-info">Tentang Proyek Ini</h2>
+      <h3>Git dan GitHub</h3>
+      <p>Git mencatat riwayat perubahan kode lewat commit. Branch dipakai untuk mengerjakan fitur secara terpisah, lalu digabung ke branch utama dengan merge. GitHub menyimpan repository secara online dan menjadi tempat Pull Request untuk meninjau perubahan sebelum digabung.</p>
+      <h3>npm</h3>
+      <p>npm adalah pengelola paket. File package.json mencatat dependencies (paket yang dibutuhkan aplikasi saat berjalan) dan devDependencies (alat bantu pengembangan seperti Vite dan TypeScript). Versi paket memakai semantic versioning MAJOR.MINOR.PATCH; tanda ^ mengizinkan pembaruan MINOR dan PATCH. Perintah npm scripts yang dipakai: dev, build, dan preview.</p>
+      <h3>TypeScript</h3>
+      <p>TypeScript adalah JavaScript dengan sistem tipe sehingga kesalahan ketahuan sebelum aplikasi dijalankan. Di kode ini dipakai tipe primitif (string, number, boolean), array, interface Tugas, type alias dan union type Status, serta generics pada kelas Penyimpanan&lt;T&gt;.</p>
+      <h3>Vite</h3>
+      <p>Vite adalah alat pengembangan yang menyediakan dev server cepat dan proses build untuk menghasilkan file siap diunggah.</p>
+      <h3>Environment variables</h3>
+      <p>Nama dan versi aplikasi dibaca dari file .env (VITE_APP_NAME dan VITE_APP_VERSION). File .env masuk .gitignore agar tidak diunggah ke GitHub, dan .env.example menjadi contoh. Variabel berawalan VITE_ ikut tertanam di hasil build, jadi hanya boleh berisi data tidak rahasia.</p>
+      <h3>Compiler, transpiler, dan bundler</h3>
+      <p>Compiler TypeScript (tsc) memeriksa tipe. Transpiler mengubah kode TypeScript menjadi JavaScript yang dipahami browser (Vite memakai esbuild untuk ini). Bundler menggabungkan banyak modul dan aset menjadi sedikit file yang dioptimalkan (Vite memakai Rollup saat build).</p>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="wadah"><p><span id="nama-footer"></span> v<span id="versi-app"></span></p></div></footer>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
